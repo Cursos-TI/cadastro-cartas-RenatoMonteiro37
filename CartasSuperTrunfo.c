@@ -11,6 +11,14 @@ int main() {
              char carta1[6] = "carta1";
              char estado[1];
              char cidade[2];
+             int 
+
+
+
+
+          printf(" Seja bem vindo ao SUPER - TRUNFO, vamos iniciar seu procedimento de cadastro antes de começarmos ao jogo.\n");
+
+
              
              
 
