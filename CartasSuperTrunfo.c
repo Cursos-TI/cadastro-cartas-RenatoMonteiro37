@@ -11,33 +11,43 @@ int main() {
   // DECLARANDO AS VARIAVEIS
 
   // Declarando variaveis referentes a carta 1 do jogo.
+
+         int densidadecomparada1; //aqui declaramos a variavel densidadecomparada para armazenar o valor 0 ou 1 resultado de comparação das cartas1 e 2 no quesito densidade.
+         
+
          char jogador[21];
          char escolha[5];  
 
          char carta1[7] = "carta1"; //VARIAVEL CARTA 1 JA SENDO DECLARADA COM VALOR - carta1.
-         char estado1[2];
+         char estado1[3];
          char codigo1[3];
          char cidade1[30];
-         int populacao1;
+         unsigned long int populacao1; // aqui declaramos a variavel população1 com unsigned long int para armazenar valores maiores.
          float area1;
          float pib1;
          int pontosturisticos1;
          float densidade1; //aqui foi declarada a variavel de densidade populacional da carta 1.
          float pibpercapita1; //aqui foi declarada a variavel do pib per capita da carta 1.
+         
+         
+         float SUPERPODER1; //AQUI DECLARAMOS A VARIAVEL SUPER PODER1.
 
   // Declarando variaveis referentes a carta 2 do jogo.
 
+         int densidadecomparada2;
+
          char carta2[7] = "carta2"; //VARIAVEL CARTA 2 JA SENDO DECLARADA COM VALOR - carta2.
-         char estado2[2];
+         char estado2[3];
          char codigo2[3];
          char cidade2[30];
-         int populacao2;
+         unsigned long int populacao2; // aqui declaramos a variavel população2 com unsigned long int para armazenar valores maiores.
          float area2;
          float pib2;
          int pontosturisticos2;
          float densidade2; //aqui foi declarada a variavel de densidade populacional da carta 2.
          float pibpercapita2; //aqui foi declarada a variavel do pib per capita da carta 2.
 
+         float SUPERPODER2; //AQUI DECLARAMOS A VARIAVEL SUPER PODER2. 
 
 // APRESENTACAO DO SOFTWARE PARA O JOGADOR UTILIZANDO A FUNCAO PRINTF E \n para criar linhas.
 
@@ -84,7 +94,7 @@ int main() {
                   printf("\nREGRA 05:  \n");
                   printf("- AO INSERIR O NUMERO DE HABITANTES, NAO UTILIZAR PONTOS OU VIRGULAS, APENAS DIGITAR O NUMERO INTEIRO, EXEMPLO 123456789.\n");
                   printf("\nPOPULACAO:");
-                  scanf("%d", &populacao1);
+                  scanf("%lu", &populacao1);
 
                   printf("\nREGRA 06:  \n");
                   printf("- INSERIR A AREA DA CIDADE UTILIZANDO SOMENTE NUMEROS E PONTO (.) PARA CASAS DECIMAIS, EXEMPLO - 1234.56 - KM^2\n");
@@ -112,7 +122,7 @@ int main() {
                   printf("\n---%s---\n", carta1);
                   printf("\nESTADO E CODIGO: - (%s.%s) -\n", estado1, codigo1);
                   printf("\nCIDADE: %s. \n", cidade1);
-                  printf("\nPOPULACAO: %d MILHOES DE HABITANTES.\n",populacao1);
+                  printf("\nPOPULACAO: %lu HABITANTES.\n",populacao1);
                   printf("\nAREA: %.2f KM^2\n", area1);
                   printf("\nPIB: %.3f BILHOES DE REAIS.\n", pib1);
                   printf("\nPONTOS TURISTICOS: %i\n", pontosturisticos1);
@@ -145,7 +155,7 @@ int main() {
                   printf("\nREGRA 05:  \n");
                   printf("- AO INSERIR O NUMERO DE HABITANTES, NAO UTILIZAR PONTOS OU VIRGULAS, APENAS DIGITAR O NUMERO INTEIRO, EXEMPLO 123456789.\n");
                   printf("\nPOPULACAO:");
-                  scanf("%i", &populacao2);
+                  scanf("%lu", &populacao2);
 
                   printf("\nREGRA 06:  \n");
                   printf("- INSERIR A AREA DA CIDADE UTILIZANDO SOMENTE NUMEROS E PONTO (.) PARA CASAS DECIMAIS, EXEMPLO - 1234.56 - KM2\n");
@@ -170,14 +180,112 @@ int main() {
                   printf("\n---%s---\n", carta2);
                   printf("\nESTADO E CODIGO: - (%s.%s) -\n", estado2, codigo2);
                   printf("\nCIDADE: %s. \n", cidade2);
-                  printf("\nPOPULACAO: %d MILHOES DE HABITANTES.\n",populacao2);
+                  printf("\nPOPULACAO: %lu HABITANTES.\n",populacao2);
                   printf("\nAREA: %.2f KM^2\n", area2);
                   printf("\nPIB: %.3f BILHOES DE REAIS.\n", pib2);
                   printf("\nPONTOS TURISTICOS: %i\n", pontosturisticos2);
                   printf("\nDENSIDADE POPULACIONAL: %.2f hab/km^2\n", densidade2); //aqui imprimimos o valor da nova variavel densidade2 da carta 2
                   printf("\nPIB PER CAPITA: %.2f reais\n", pibpercapita2); //aqui imprimimos o valor da nova variavel pibpercapita2 da carta 2
 
-                  printf("\nMEUS PARABENS VOCE CONCLUIU COM SUCESSO, NOS VEMOS NA PROXIMA ETAPA! ATE LOGO %s.\n", jogador);
+                  printf("\nMEUS PARABENS VOCE CONCLUIU COM SUCESSO, AGORA VAMOS COMPARAR OS PODERES DAS CARTAS! %s.\n", jogador);
+
+                  densidadecomparada1 = densidade1 < densidade2;
+                  densidadecomparada2 = densidade2 < densidade1;
+
+                  SUPERPODER1 = (float)populacao1 
+                              + (float)area1 
+                              + (float)pib1 
+                              + (float)pontosturisticos1 
+                              + (float)densidade1 
+                              + (float)pibpercapita1 
+                              + (float)(densidadecomparada1);
+
+                  SUPERPODER2 = (float)populacao2 
+                              + (float)area2 
+                              + (float)pib2 
+                              + (float)pontosturisticos2 
+                              + (float)densidade2 
+                              + (float)pibpercapita2 
+                              + (float)(densidadecomparada2);
+
+                  //resultado dos superpoderes
+                  printf(" %.2f\n", SUPERPODER1);
+
+                  printf(" %.2f\n", SUPERPODER2);
+
+
+                  printf("--- PERFEITO CHEGOU A HORA DE COMPARAR AS CARTAS LADO A LADO ---\n");
+                  printf("--- PRESSIONE S E APERTE O ENTER PARA PROSSEGUIR ---\n");
+                  scanf("%s", escolha);
+                  // declaração das variaveis para comparação.
+
+                   int comp_populacao1; 
+                   int comp_area1;
+                   int comp_pib1;
+                   int comp_pontosturisticos1;
+                   int comp_densidade1; 
+                   int comp_pibpercapita1;
+                   int comp_superpoder1;
+                   int total1;
+
+                   int comp_populacao2; 
+                   int comp_area2;
+                   int comp_pib2;
+                   int comp_pontosturisticos2;
+                   int comp_densidade2; 
+                   int comp_pibpercapita2;
+                   int comp_superpoder2;
+                   int total2;
+
+                   // AQUI IREMOS FAZER A COMPARAÇÃO E ATRIBUIR OS VALORES AS VARIAVEIS DE COMPARAÇÃO
+
+                   comp_populacao1 = populacao1 > populacao2;
+                   comp_area1 = area1 > area2;
+                   comp_pib1 = pib1 > pib2;
+                   comp_pontosturisticos1 = pontosturisticos1 > pontosturisticos2;
+                   comp_densidade1 = densidade1 < densidade2;
+                   comp_pibpercapita1 = pibpercapita1 > pibpercapita2;
+                   comp_superpoder1 = SUPERPODER1 > SUPERPODER2;
+
+                   comp_populacao2 = populacao2 > populacao1;
+                   comp_area2 = area2 > area1;
+                   comp_pib2 = pib2 > pib1;
+                   comp_pontosturisticos2 = pontosturisticos2 > pontosturisticos1;
+                   comp_densidade2 = densidade2 < densidade1;
+                   comp_pibpercapita2 = pibpercapita2 > pibpercapita1;
+                   comp_superpoder2 = SUPERPODER2 > SUPERPODER1;
+                
+
+                   printf("-----------------CARTA1--- VS ---CARTA2---.\n");
+                   printf("ESTADO E CODIGO:-(%s.%s)---VS---(%s.%s)----.\n", estado1, codigo1, estado2, codigo2);
+                   printf("---POPULACAO:------%i------VS------%i-----.\n", comp_populacao1, comp_populacao2);
+                   printf("--------AREA:------%i------VS------%i-----.\n", comp_area1, comp_area2);
+                   printf("---------PIB:------%i------VS------%i-----.\n", comp_pib1, comp_pib2);
+                   printf("-----TURISMO:------%i------VS------%i-----.\n", comp_pontosturisticos1, comp_pontosturisticos2);
+                   printf("---DENSIDADE:------%i------VS------%i-----.\n", comp_densidade1, comp_densidade2);
+                   printf("PIBPERCAPITA:------%i------VS------%i-----.\n", comp_pibpercapita1, comp_pibpercapita2);
+                   printf("--SUPERPODER:------%i------VS------%i-----.\n", comp_superpoder1, comp_superpoder2);
+
+                   total1 = comp_populacao1 
+                          + comp_area1 
+                          + comp_pib1 
+                          + comp_pontosturisticos1 
+                          + comp_densidade1 
+                          + comp_pibpercapita1 
+                          + comp_superpoder1;
+
+                   total2 = comp_populacao2 
+                          + comp_area2 
+                          + comp_pib2 
+                          + comp_pontosturisticos2 
+                          + comp_densidade2 
+                          + comp_pibpercapita2 
+                          + comp_superpoder2;
+
+                    printf("-------------CARTA1----VS----CARTA2---.\n");
+
+                   printf("TOTAL VENCEDOR:--%i-----VS------%i-----.\n", total1, total2);
+                  
 
                   printf("\nDIGITE SAIR E APERTE ENTER PARA ENCERRAR: "); 
                   scanf("%s", escolha);
